@@ -17,3 +17,4 @@ def odd_even(word, numbers_list):
 
 
 odd_even(command, nums)
+
