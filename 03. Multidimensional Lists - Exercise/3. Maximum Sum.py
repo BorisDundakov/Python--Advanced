@@ -1,35 +1,26 @@
-rows, cols = [int(el) for el in input().split()]
-matrix = []
+rows, columns = list(map(int, input().split(" ")))
 
-for ind_row in range(rows):
-    new_row = [int(el) for el in input().split()]
-    matrix.append(new_row)
+# how to move 3x3 matrix all the way
 
-current_sum = []
-sums_list = []
-for row in range(rows - 2):
-    for col in range(cols - 2):
-        a1 = matrix[row][col]
-        a2 = matrix[row][col + 1]
-        a3 = matrix[row][col + 2]
-        b1 = matrix[row + 1][col]
-        b2 = matrix[row + 1][col + 1]
-        b3 = matrix[row + 1][col + 2]
-        c1 = matrix[row + 2][col]
-        c2 = matrix[row + 2][col + 1]
-        c3 = matrix[row + 2][col + 2]
-        current_sum.append([a1, a2, a3, b1, b2, b3, c1, c2, c3])
+matrix = [[int(row) for row in input().split()] for _ in range(rows)]
+matrix_3x3 = []
+for i in range(len(matrix) - 2):
+    row = matrix[i]
+    for j in range(len(row) - 2):
+        max_3x3 = [
+            matrix[i][j], matrix[i][j + 1], matrix[i][j + 2],
+            matrix[i + 1][j], matrix[i + 1][j + 1], matrix[i + 1][j + 2],
+            matrix[i + 2][j], matrix[i + 2][j + 1], matrix[i + 2][j + 2],
+        ]
+        matrix_3x3.append(max_3x3)
+        # matrix 3x3 събира всички матрици възможни
 
-for el in current_sum:
-    sums_list.append(sum(el))
-
-res = max(sums_list)
-print(f'Sum = {res}')
-for el in current_sum:
-    if sum(el) == res:
-        for index in range(len(el)):
-            if index == 3 or index == 6:
-                print()
-                print(el[index], end=' ')
-            else:
-                print(el[index], end=' ')
+max_matrix_3x3 = max(matrix_3x3, key=lambda x: sum(x))
+# summing the values of each 3x3 matrix, then returning the biggest one
+beginning = 0
+print(f"Sum = {sum(max_matrix_3x3)}")
+for r in range(1, len(max_matrix_3x3) + 1):
+    # starting from 1 to have the correct indices
+    if r % 3 == 0:
+        print(*max_matrix_3x3[beginning:r])
+        beginning = r

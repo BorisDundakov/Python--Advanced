@@ -15,5 +15,4 @@ def neg_vs_pos(numbers_list):
     else:
         print('The positives are stronger than the negatives')
 
-
 neg_vs_pos(nums_list)

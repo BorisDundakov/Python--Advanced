@@ -1,24 +1,9 @@
 def even_odd(*args):
-    nums = []
-    res = []
+    command = args[-1]
+    numbers = args[:-1]
 
-    for el in range(len(args)):
-        if args[el] != "odd" and args[el] != "even":
-            nums.append(args[el])
-            continue
-        else:
-            if args[el] != "odd":
-                for ele in range(len(nums)):
-                    if nums[ele] % 2 == 0:
-                        res.append(nums[ele])
-            else:
-                for ele in range(len(nums)):
-                    if nums[ele] % 2 != 0:
-                        res.append(nums[ele])
+    if command == "even":
+        return list(filter(lambda x: x % 2 == 0, numbers))
 
-
-    return res
-
-
-print(even_odd(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "odd"))
-# print(even_odd(1, 2, 3, 4, 5, 6, "even"))
+    elif command == "odd":
+        return list(filter(lambda x: x % 2 != 0, numbers))

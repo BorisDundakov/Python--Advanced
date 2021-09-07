@@ -1,3 +1,10 @@
+# primary and secondaly diagonal
+# 1 2 3
+# 4 5 6
+# 7 8 9
+# primary -> 1,5,9
+# secondary -> 3,5,7
+
 matrix_size = int(input())
 matrix = []
 for row in range(matrix_size):

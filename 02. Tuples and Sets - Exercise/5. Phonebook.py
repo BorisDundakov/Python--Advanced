@@ -1,21 +1,14 @@
+phonebook = {}
 command = input()
-kvp_phonebook = {}
-while not command .isdigit():
-    name, phone_number = command.split("-")
-    if name not in kvp_phonebook:
-        kvp_phonebook[name] = phone_number
-    else:
-        kvp_phonebook[name].update(phone_number)
+
+while not command.isdigit():
+    name, phone_number = command.split('-')
+    phonebook[name] = phone_number
     command = input()
 
-success_contacts = []
-for el in range(int(command)):
-    for contact in kvp_phonebook:
-        name_search = input()
-        if name_search in contact:
-            pass
-            print(contact)
-        else:
-            print(f'Contact {name_search} does not exist.')
-
-
+for contact in range(int(command)):
+    contact_name = input()
+    if contact_name in phonebook:
+        print(f'{contact_name} -> {phonebook[contact_name]}')
+    else:
+        print(f'Contact {contact_name} does not exist.')

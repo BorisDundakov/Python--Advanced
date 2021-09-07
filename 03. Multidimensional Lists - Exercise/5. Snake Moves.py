@@ -2,6 +2,8 @@ rows, cols = [int(el) for el in input().split()]
 word = input()
 matrix = []
 
+# creating A x B matrix filled with 0's
+
 for row_index in range(rows):
     matrix.append([0 for el in range(cols)])
 
