@@ -10,7 +10,6 @@ while line != "Search":
     except ValueError:
         print("The variable number must be an integer")
 
-
     finally:
         line = input()
 

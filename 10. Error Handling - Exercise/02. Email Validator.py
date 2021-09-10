@@ -18,6 +18,7 @@ class InvalidDomainError(Exception):
 class InvalidEmail(Exception):
     pass
 
+
 email = input()
 
 while email != "End":
@@ -33,7 +34,6 @@ while email != "End":
     if len(_) > 1:
         raise InvalidDomainError('Invalid domain')
 
-
     check_domain = email.split('.')[-1]
     if check_domain not in ['com', 'bg', 'org', 'net']:
         raise InvalidDomainError("Domain must be one of the following: .com, .bg, .org, .net")
@@ -43,6 +43,5 @@ while email != "End":
         print('Email is valid')
     else:
         raise InvalidEmail("Email is not valid")
-
 
     email = input()

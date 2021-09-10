@@ -13,6 +13,5 @@ for el in range(n):
         if digit.isdigit():
             total_quantity += int(digit)
 
-
 print(bunker)
 print(total_quantity)

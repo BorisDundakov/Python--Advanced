@@ -9,6 +9,3 @@ n = int(input("Enter a number: "))
 print("Fibonacci sequence:")
 for i in range(n):
     print(fibonacci(i), end=" ")
-
-
-
